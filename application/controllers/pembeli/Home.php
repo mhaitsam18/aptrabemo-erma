@@ -29,5 +29,8 @@ class Home extends CI_Controller
     }
     public function index()
     {
+        $data['title'] = "Home Pembeli";
+
+        $this->load->view('pembeli/home/index', $data);
     }
 }

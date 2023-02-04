@@ -57,11 +57,7 @@ class Auth extends CI_Controller
         if ($user) {
             if ($user['is_active'] ==  1) {
                 if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'username' => $user['username'],
-                        'role' => $user['role']
-                    ];
-                    $this->session->set_userdata($data);
+                    $this->session->set_userdata($user);
                     if ($user['role'] == 'admin') {
                         redirect('admin/home');
                     } elseif ($user['role'] == 'pembeli') {
@@ -71,21 +67,30 @@ class Auth extends CI_Controller
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-						Wrong password!
+						Username dan Katasandi tidak sesuai!
 						</div>');
                     redirect('auth');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-					This username has not been activated! Please Check Your username!
+					Username belum diaktivasi, silahkan cek Email Anda!
 					</div>');
                 redirect('auth');
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-				username is not registered!
+				Username tidak terdaftar!
 				</div>');
             redirect('auth');
         }
+    }
+
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+			Anda sudah log out
+			</div>');
+        redirect('auth');
     }
 }
