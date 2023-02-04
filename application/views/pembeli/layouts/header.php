@@ -2,7 +2,7 @@
     <div class="header-top">
         <div class="container">
             <div class="logo">
-                <a href="/"><img src="<?= base_url(''); ?>assets/img/app/Aptrabemo_Logo.png" style="width: 60px; height: 60px;" alt="Logo" srcset=""></a>
+                <a href="<?= base_url('') ?>"><img src="<?= base_url(''); ?>assets/img/app/Aptrabemo_Logo.png" style="width: 60px; height: 60px;" alt="Logo" srcset=""></a>
             </div>
             <div class="header-top-right">
 
