@@ -196,6 +196,19 @@
                                                 </form>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>Ubah Stok</td>
+                                            <td>:</td>
+                                            <td>
+                                                <form action="<?= base_url('pedagang/produk/ubah_stok') ?>" method="post">
+                                                    <input type="hidden" id="id_produk" name="id_produk" value="<?= $produk->id_produk ?>">
+                                                    <div class="input-group mb-3" style="width: 500px;">
+                                                        <input type="text" class="form-control" name="stok" placeholder="Ubah Stok" aria-label="Ubah Stok" aria-describedby="stok">
+                                                        <button class="btn btn-outline-primary" type="submit" id="stok">Ubah Stok</button>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

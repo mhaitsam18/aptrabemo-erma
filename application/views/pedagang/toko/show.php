@@ -83,6 +83,7 @@
                             <h4>Data Toko</h4>
                         </div>
                         <div class="card-body">
+                            <a href="<?= base_url('pedagang/penjualan/index/' . $toko->id_toko) ?>" class="btn btn-primary mb-3 float-end">Lihat Pemesanan</a>
                             <table>
                                 <caption>
                                     <img src="<?= base_url('assets/img/uploads/' . $toko->gambar_toko) ?>" alt="" class="img-thumbnail">
@@ -138,8 +139,8 @@
                                             <td><?= $produk->keterangan ?></td>
                                             <td><img src="<?= base_url('assets/img/uploads/' . $produk->gambar_produk) ?>" alt="<?= $produk->nama_produk ?>" class="img-thumbnail"></td>
                                             <td>
-                                                <a href="<?= base_url('pedagang/Produk/delete/' . $produk->id_produk) ?>" class="badge bg-danger">Hapus</a>
-                                                <a href="<?= base_url('pedagang/Produk/edit/' . $produk->id_produk) ?>" class="badge bg-success">Ubah</a>
+                                                <!-- <a href="<?= base_url('pedagang/Produk/delete/' . $produk->id_produk) ?>" class="badge bg-danger">Hapus</a>
+                                                <a href="<?= base_url('pedagang/Produk/edit/' . $produk->id_produk) ?>" class="badge bg-success">Ubah</a> -->
                                                 <a href="<?= base_url('pedagang/Produk/show/' . $produk->id_produk) ?>" class="badge bg-info">Detail</a>
                                             </td>
 

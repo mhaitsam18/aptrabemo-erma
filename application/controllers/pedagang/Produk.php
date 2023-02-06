@@ -189,6 +189,15 @@ class Produk extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Stok Produk berhasil ditambahkan!</div>');
         redirect($_SERVER['HTTP_REFERER']);
     }
+    public function ubah_stok()
+    {
+        $this->db->where('id_produk', $this->input->post('id_produk'));
+        $this->db->update('produk', [
+            'stok' => $this->input->post('stok')
+        ]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Stok Produk berhasil ditambahkan!</div>');
+        redirect($_SERVER['HTTP_REFERER']);
+    }
     public function delete($id_produk = null)
     {
         $this->db->delete('produk', [

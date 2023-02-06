@@ -13,4 +13,16 @@ class PenjualanModel extends CI_Model
     public $keterangan;
     public $proses;
     public $waktu_transaksi;
+    public $is_canceled;
+
+    public function getPenjualanByTokoJoinPembeli($id_toko)
+    {
+        $this->db->join('users', 'penjualan.id_pembeli = users.id_user');
+        return $this->db->get_where('penjualan', ['id_toko' => $id_toko])->result();
+    }
+    public function findPenjualanJoinPembeli($id_penjualan)
+    {
+        $this->db->join('users', 'penjualan.id_pembeli = users.id_user');
+        return $this->db->get_where('penjualan', ['id_penjualan' => $id_penjualan])->row();
+    }
 }

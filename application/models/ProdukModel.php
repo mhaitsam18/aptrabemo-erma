@@ -30,4 +30,9 @@ class ProdukModel extends CI_Model
         $this->db->join('toko', 'produk.id_toko = toko.id_toko');
         return $this->db->get_where('produk', ['id_produk' => $id_produk])->row();
     }
+    public function findProdukJoinToko($id_produk)
+    {
+        $this->db->join('toko', 'produk.id_toko = toko.id_toko');
+        return $this->db->get_where('produk', ['id_produk' => $id_produk])->row();
+    }
 }
