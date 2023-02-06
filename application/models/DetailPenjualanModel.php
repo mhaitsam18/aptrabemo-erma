@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class PenjualanModel extends CI_Model
+class DetailPenjualanModel extends CI_Model
 {
     public $id_detail_penjualan;
     public $id_penjualan;
@@ -11,5 +11,12 @@ class PenjualanModel extends CI_Model
     public $harga_jual;
     public $satuan;
     public $keterangan_order;
-    public $is_canceled;
+
+    public function getDetailPenjualanByPenjualanJoinProduk($id_penjualan)
+    {
+        $this->db->join('produk', 'produk.id_produk = detail_penjualan.id_produk');
+        return $this->db->get_where('detail_penjualan', [
+            'id_penjualan' => $id_penjualan
+        ])->result();
+    }
 }
