@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller
+class Toko extends CI_Controller
 {
 
     /**
@@ -29,8 +29,33 @@ class Home extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = "Home Pedagang";
+        $data['title'] = "Toko";
 
-        $this->load->view('pedagang/home/index', $data);
+        $this->load->view('pedagang/toko/index', $data);
+    }
+    public function create()
+    {
+        $data['title'] = "Buat Toko";
+
+        $this->load->view('pedagang/toko/create', $data);
+    }
+    public function show($id_toko = null)
+    {
+        $data['title'] = "Lihat Toko";
+        $data['toko'] = $this->db->get_where('toko', ['id_toko' => $id_toko])->row();
+        $data['data_produk'] = $this->db->get_where('produk', ['id_toko' => $id_toko])->result();
+        $this->load->view('pedagang/toko/show', $data);
+    }
+    public function edit($id_toko = null)
+    {
+        $data['title'] = "Edit Toko";
+
+        $this->load->view('pedagang/toko/edit', $data);
+    }
+    public function update()
+    {
+    }
+    public function delete()
+    {
     }
 }

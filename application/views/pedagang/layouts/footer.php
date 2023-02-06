@@ -18,6 +18,11 @@
 <!-- Need: Apexcharts -->
 <script src="<?= base_url('') ?>assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="<?= base_url('') ?>assets/js/pages/dashboard.js"></script>
+
+<!-- dari table-datatable-jquery.html -->
+<script src="<?= base_url('') ?>assets/extensions/jquery/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+<script src="<?= base_url('') ?>assets/js/pages/datatables.js"></script>
 </body>
 
 </html>
