@@ -39,6 +39,9 @@ class Toko extends CI_Controller
 
         $this->load->view('pedagang/toko/create', $data);
     }
+    public function store()
+    {
+    }
     public function show($id_toko = null)
     {
         $data['title'] = "Lihat Toko";

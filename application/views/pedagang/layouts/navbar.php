@@ -65,7 +65,7 @@
                         </div>
                         <div class="user-img d-flex align-items-center">
                             <div class="avatar avatar-md">
-                                <img src="<?= base_url('assets/img/upload/' . $this->session->userdata('foto')); ?>">
+                                <img src="<?= base_url('assets/img/uploads/' . $this->session->userdata('foto')); ?>">
                             </div>
                         </div>
                     </div>

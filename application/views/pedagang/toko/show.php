@@ -78,13 +78,14 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                        <?= $this->session->flashdata('message'); ?>
                         <div class="card-header">
                             <h4>Data Toko</h4>
                         </div>
                         <div class="card-body">
                             <table>
                                 <caption>
-                                    <img src="<?= base_url('assets/img/upload/' . $toko->gambar) ?>" alt="" class="img-thumbnail">
+                                    <img src="<?= base_url('assets/img/uploads/' . $toko->gambar_toko) ?>" alt="" class="img-thumbnail">
                                 </caption>
                                 <tbody>
                                     <tr>
@@ -100,7 +101,7 @@
                                     <tr>
                                         <td>Tanggal dibuat</td>
                                         <td>:</td>
-                                        <td><?= $toko->created_at ?></td>
+                                        <td><?= date('j F Y H:i:s', strtotime($toko->created_at)) ?></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -115,6 +116,7 @@
                             <h4>Data Produk</h4>
                         </div>
                         <div class="card-body">
+                            <a href="<?= base_url('pedagang/produk/create/' . $toko->id_toko) ?>" class="btn btn-primary mb-3">Tambah Data Produk</a>
                             <table class="table table-responsive" id="table1">
                                 <thead>
                                     <tr>
@@ -134,7 +136,7 @@
                                             <td><?= $produk->nama_produk ?></td>
                                             <td><?= $produk->harga_konsumen ?></td>
                                             <td><?= $produk->keterangan ?></td>
-                                            <td><img src="<?= base_url('assets/img/upload/' . $produk->gambar) ?>" alt="<?= $produk->nama_produk ?>" class="img-thumbnail"></td>
+                                            <td><img src="<?= base_url('assets/img/uploads/' . $produk->gambar_produk) ?>" alt="<?= $produk->nama_produk ?>" class="img-thumbnail"></td>
                                             <td>
                                                 <a href="<?= base_url('pedagang/Produk/delete/' . $produk->id_produk) ?>" class="badge bg-danger">Hapus</a>
                                                 <a href="<?= base_url('pedagang/Produk/edit/' . $produk->id_produk) ?>" class="badge bg-success">Ubah</a>
@@ -274,7 +276,7 @@
                 <div class="card-body py-4 px-5">
                     <div class="d-flex align-items-center">
                         <div class="avatar avatar-xl">
-                            <img src="<?= base_url(''); ?>assets/images/faces/1.jpg" alt="Face 1">
+                            <img src="<?= base_url('assets/img/uploads/' . $this->session->foto); ?>" alt="Face 1">
                         </div>
                         <div class="ms-3 name">
                             <h5 class="font-bold"><?= $this->session->userdata('nama_lengkap'); ?></h5>

@@ -9,7 +9,7 @@
                 <div class="dropdown">
                     <a href="#" class="user-dropdown d-flex dropend" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="avatar avatar-md2">
-                            <img src="<?= base_url('assets/img/upload/' .  $this->session->userdata('foto')); ?>" alt="Avatar">
+                            <img src="<?= base_url('assets/img/uploads/' .  $this->session->userdata('foto')); ?>" alt="Avatar">
                         </div>
                         <div class="text">
                             <h6 class="user-dropdown-name"><?= $this->session->userdata('nama_lengkap') ?></h6>
