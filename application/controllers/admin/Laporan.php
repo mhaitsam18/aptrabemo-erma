@@ -23,6 +23,7 @@ class Laporan extends CI_Controller
     {
         parent::__construct();
         date_default_timezone_set('Asia/Jakarta');
+        $this->load->model('DetailPenjualanModel');
         $this->load->model('TokoModel');
         if (!$this->session->userdata('username')) {
             redirect('home');
@@ -33,5 +34,14 @@ class Laporan extends CI_Controller
         $data['title'] = "Laporan";
         $data['data_toko'] = $this->TokoModel->getTokoJoinUser();
         $this->load->view('admin/laporan/index', $data);
+    }
+
+    public function toko($id_toko = null)
+    {
+        $data['title'] = "Laporan Penjualan Toko";
+
+        $data['toko'] = $this->db->get_where('toko', ['id_toko' => $id_toko])->row();
+        $data['data_laporan'] = $this->DetailPenjualanModel->getDetailPenjualanByTokoJoinLengkap($id_toko);
+        $this->load->view('admin/laporan/toko', $data);
     }
 }
