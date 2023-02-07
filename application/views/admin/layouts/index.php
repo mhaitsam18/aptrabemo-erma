@@ -1,6 +1,6 @@
-<?php $this->load->view('pedagang/layouts/head', ['title' => $title]); ?>
+<?php $this->load->view('admin/layouts/head', ['title' => $title]); ?>
 <div class="page-heading">
-    <h3>Selamat datang di beranda Aptrabemo</h3>
+    <h3>Profile Statistics</h3>
 </div>
 <div class="page-content">
     <section class="row">
@@ -16,7 +16,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Kunjungan Toko</h6>
+                                    <h6 class="text-muted font-semibold">Profile Views</h6>
                                     <h6 class="font-extrabold mb-0">112.000</h6>
                                 </div>
                             </div>
@@ -200,11 +200,11 @@
                 <div class="card-body py-4 px-5">
                     <div class="d-flex align-items-center">
                         <div class="avatar avatar-xl">
-                            <img src="<?= base_url('assets/img/uploads/' . $this->session->userdata('foto')); ?>" alt="Face 1">
+                            <img src="<?= base_url(''); ?>assets/images/faces/1.jpg" alt="Face 1">
                         </div>
                         <div class="ms-3 name">
-                            <h5 class="font-bold"><?= $this->session->userdata('nama_lengkap'); ?></h5>
-                            <h6 class="text-muted mb-0">@<?= $this->session->userdata('username') ?></h6>
+                            <h5 class="font-bold">John Duck</h5>
+                            <h6 class="text-muted mb-0">@johnducky</h6>
                         </div>
                     </div>
                 </div>
@@ -258,4 +258,4 @@
         </div>
     </section>
 </div>
-<?php $this->load->view('pedagang/layouts/footer'); ?>
+<?php $this->load->view('admin/layouts/footer'); ?>

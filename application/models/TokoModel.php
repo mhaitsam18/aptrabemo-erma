@@ -10,4 +10,10 @@ class TokoModel extends CI_Model
     public $deskripsi_toko;
     public $gambar_toko;
     public $created_at;
+
+    public function getTokoJoinUser()
+    {
+        $this->db->join('users', 'toko.id_user = users.id_user');
+        return $this->db->get('toko')->result();
+    }
 }

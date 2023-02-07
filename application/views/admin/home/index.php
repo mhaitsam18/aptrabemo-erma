@@ -1,6 +1,6 @@
-<?php $this->load->view('pedagang/layouts/head', ['title' => $title]); ?>
+<?php $this->load->view('admin/layouts/head', ['title' => $title]); ?>
 <div class="page-heading">
-    <h3>Selamat datang di beranda Aptrabemo</h3>
+    <h3>Selamat datang di Dashboard Aptrabemo</h3>
 </div>
 <div class="page-content">
     <section class="row">
@@ -16,7 +16,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Kunjungan Toko</h6>
+                                    <h6 class="text-muted font-semibold">Kunjungan Pasar</h6>
                                     <h6 class="font-extrabold mb-0">112.000</h6>
                                 </div>
                             </div>
@@ -258,4 +258,4 @@
         </div>
     </section>
 </div>
-<?php $this->load->view('pedagang/layouts/footer'); ?>
+<?php $this->load->view('admin/layouts/footer'); ?>
