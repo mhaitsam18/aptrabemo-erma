@@ -20,15 +20,18 @@ class ProdukModel extends CI_Model
     public $is_active;
     public $tag;
     public $dilihat;
+    public $disukai;
     public $minimum;
     public $stok;
     public $created_at;
 
 
-    public function getProdukJoinToko($id_produk)
+    public function getProdukJoinToko()
     {
         $this->db->join('toko', 'produk.id_toko = toko.id_toko');
-        return $this->db->get_where('produk', ['id_produk' => $id_produk])->row();
+        return $this->db->get_where('produk', [
+            'is_active' => 1
+        ])->result();
     }
     public function findProdukJoinToko($id_produk)
     {

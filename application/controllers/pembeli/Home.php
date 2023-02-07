@@ -23,6 +23,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         date_default_timezone_set('Asia/Jakarta');
+        $this->load->model('produkModel');
         if (!$this->session->userdata('username')) {
             redirect('home');
         }
@@ -30,7 +31,7 @@ class Home extends CI_Controller
     public function index()
     {
         $data['title'] = "Home Pembeli";
-
+        $data['data_produk'] = $this->produkModel->getProdukJoinToko();
         $this->load->view('pembeli/home/index', $data);
     }
 }

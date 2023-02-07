@@ -109,7 +109,7 @@ class Produk extends CI_Controller
     public function show($id_produk = null)
     {
         $data['title'] = "Lihat Produk";
-        $data['produk'] = $this->ProdukModel->getProdukJoinToko($id_produk);
+        $data['produk'] = $this->ProdukModel->findProdukJoinToko($id_produk);
         $this->load->view('pedagang/produk/show', $data);
     }
     public function edit($id_produk = null)
