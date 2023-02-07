@@ -1,4 +1,4 @@
-<?php $this->load->view('pedagang/layouts/head', ['title' => $title]); ?>
+<?php $this->load->view('admin/layouts/head', ['title' => $title]); ?>
 <div class="page-heading">
     <h3>Laporan Aptrabemo</h3>
 </div>
@@ -48,4 +48,4 @@
         </div>
     </section>
 </div>
-<?php $this->load->view('pedagang/layouts/footer'); ?>
+<?php $this->load->view('admin/layouts/footer'); ?>
