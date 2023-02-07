@@ -31,7 +31,7 @@
                                             <th scope="row"><?= $no++ ?></th>
                                             <td><?= $toko->nama_toko ?></td>
                                             <td><?= $toko->nama_lengkap ?></td>
-                                            <td><?= $toko->keterangan ?></td>
+                                            <td><?= $toko->deskripsi_toko ?></td>
                                             <td><img src="<?= base_url('assets/img/uploads/' . $toko->gambar_toko) ?>" alt="<?= $toko->nama_toko ?>" class="img-thumbnail"></td>
                                             <td>
                                                 <a href="<?= base_url('admin/toko/show/' . $toko->id_toko) ?>" class="badge bg-info">Detail</a>
