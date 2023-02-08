@@ -28,9 +28,7 @@ class Keranjang extends CI_Controller
             redirect('home');
         }
     }
-    public function index()
-    {
-    }
+
 
     public function tambah($id_produk, $rowid = '')
     {
