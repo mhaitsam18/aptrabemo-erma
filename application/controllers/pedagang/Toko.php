@@ -46,7 +46,9 @@ class Toko extends CI_Controller
     {
         $data['title'] = "Lihat Toko";
         $data['toko'] = $this->db->get_where('toko', ['id_toko' => $id_toko])->row();
-        $data['data_produk'] = $this->db->get_where('produk', ['id_toko' => $id_toko])->result();
+        $data_produk = $this->db->get_where('produk', ['id_toko' => $id_toko]);
+        $data['jumlah_produk'] = $data_produk->num_rows();
+        $data['data_produk'] = $data_produk->result();
         $this->load->view('pedagang/toko/show', $data);
     }
     public function edit($id_toko = null)

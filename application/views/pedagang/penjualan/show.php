@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <h6 class="text-muted font-semibold">Bruto</h6>
-                                    <h6 class="font-extrabold mb-0">112.000</h6>
+                                    <h6 class="font-extrabold mb-0">Rp. <?= number_format(112000, 2, ',', '.'); ?></h6>
                                 </div>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <h6 class="text-muted font-semibold">Netto</h6>
-                                    <h6 class="font-extrabold mb-0">183.000</h6>
+                                    <h6 class="font-extrabold mb-0">Rp. <?= number_format(183000, 2, ',', '.'); ?></h6>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <h6 class="text-muted font-semibold">Rating Konsumen</h6>
-                                    <h6 class="font-extrabold mb-0">80.000</h6>
+                                    <h6 class="font-extrabold mb-0">4.6</h6>
                                 </div>
                             </div>
                         </div>
@@ -67,8 +67,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Jumlah Produk</h6>
-                                    <h6 class="font-extrabold mb-0">112</h6>
+                                    <h6 class="text-muted font-semibold">Jumlah Pesanan</h6>
+                                    <h6 class="font-extrabold mb-0">6 item</h6>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                             <h4>Data Pemesanan</h4>
                         </div>
                         <div class="card-body">
-                            <a href="#" class="btn btn-success float-end">Lihat Pembayaran</a>
+                            <!-- <a href="#" class="btn btn-success float-end">Lihat Pembayaran</a> -->
                             <div class="row">
                                 <div class="col-md-6">
                                     <table>
@@ -263,7 +263,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                 <div class="card-header">
                     <h4>Chat dengan Pembeli</h4>
                 </div>
@@ -282,7 +282,7 @@
                             Conversation</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 </div>

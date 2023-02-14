@@ -14,6 +14,7 @@ class ProdukModel extends CI_Model
     public $harga_reseller;
     public $harga_konsumen;
     public $berat;
+    public $satuan_berat;
     public $gambar_produk;
     public $tentang_produk;
     public $keterangan;

@@ -51,6 +51,7 @@ class Produk extends CI_Controller
         // $this->form_validation->set_rules('harga_reseller', 'Deskripsi', 'trim|required');
         $this->form_validation->set_rules('harga_konsumen', 'Harga Konsumen', 'trim|required');
         $this->form_validation->set_rules('berat', 'Berat', 'trim|required');
+        $this->form_validation->set_rules('satuan_berat', 'Satuan Berat', 'trim|required');
         $this->form_validation->set_rules('tentang_produk', 'Tentang Produk', 'trim|required');
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'trim|required');
         $this->form_validation->set_rules('tag', 'Tag', 'trim|required');
@@ -88,6 +89,7 @@ class Produk extends CI_Controller
                     // 'harga_reseller' => $this->input->post('harga_reseller'),
                     'harga_konsumen' => $this->input->post('harga_konsumen'),
                     'berat' => $this->input->post('berat'),
+                    'satuan_berat' => $this->input->post('satuan_berat'),
                     'gambar_produk' => 'gambar-produk/' . $this->upload->data('file_name'),
                     'tentang_produk' => $this->input->post('tentang_produk'),
                     'keterangan' => $this->input->post('keterangan'),
@@ -125,6 +127,7 @@ class Produk extends CI_Controller
         // $this->form_validation->set_rules('harga_reseller', 'Deskripsi', 'trim|required');
         $this->form_validation->set_rules('harga_konsumen', 'Harga Konsumen', 'trim|required');
         $this->form_validation->set_rules('berat', 'Berat', 'trim|required');
+        $this->form_validation->set_rules('satuan_berat', 'Satuan Berat', 'trim|required');
         $this->form_validation->set_rules('tentang_produk', 'Tentang Produk', 'trim|required');
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'trim|required');
         $this->form_validation->set_rules('tag', 'Tag', 'trim|required');
@@ -167,6 +170,7 @@ class Produk extends CI_Controller
             // 'harga_reseller' => $this->input->post('harga_reseller'),
             'harga_konsumen' => $this->input->post('harga_konsumen'),
             'berat' => $this->input->post('berat'),
+            'satuan_berat' => $this->input->post('satuan_berat'),
             'gambar_produk' => $new_image,
             'tentang_produk' => $this->input->post('tentang_produk'),
             'keterangan' => $this->input->post('keterangan'),

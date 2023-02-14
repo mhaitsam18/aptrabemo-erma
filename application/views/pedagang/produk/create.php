@@ -78,11 +78,20 @@
                                         <?= form_error('harga_konsumen') ?>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="berat" class="form-label">Berat (Gram)</label>
-                                    <input type="number" class="form-control <?= (form_error('berat')) ? 'is-invalid' : '' ?>" name="berat" id="berat" value="<?= set_value('berat'); ?>" step="any">
-                                    <div id="berat" class="invalid-feedback">
-                                        <?= form_error('berat') ?>
+                                <div class="mb-3 row">
+                                    <div class="col">
+                                        <label for="berat" class="form-label">Berat</label>
+                                        <input type="number" class="form-control <?= (form_error('berat')) ? 'is-invalid' : '' ?>" name="berat" id="berat" value="<?= set_value('berat'); ?>" step="any">
+                                        <div id="berat" class="invalid-feedback">
+                                            <?= form_error('berat') ?>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="satuan_berat" class="form-label">Satuan Berat</label>
+                                        <input type="number" class="form-control <?= (form_error('satuan_berat')) ? 'is-invalid' : '' ?>" name="satuan_berat" id="satuan_berat" value="<?= set_value('satuan_berat'); ?>" step="any" placeholder="gram / kg / ons">
+                                        <div id="satuan_berat" class="invalid-feedback">
+                                            <?= form_error('satuan_berat') ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
