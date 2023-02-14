@@ -181,52 +181,28 @@ class Pedagang extends CI_Controller
             $new_image = $this->input->post('oldImage');
         }
         $this->db->where('id_user', $this->input->post('id_user'));
-        $this->db->update('user', [
-            // 'id_perusahaan' => $this->input->post('id_perusahaan'),
-            // 'id_kategori' => $this->input->post('id_kategori'),
-            'nama_user' => $this->input->post('nama_user'),
-            'satuan' => $this->input->post('satuan'),
-            'harga_beli' => $this->input->post('harga_beli'),
-            // 'harga_reseller' => $this->input->post('harga_reseller'),
-            'harga_konsumen' => $this->input->post('harga_konsumen'),
-            'berat' => $this->input->post('berat'),
+        $this->db->update('users', [
+            'username' => $this->input->post('username'),
+            'password' => $this->input->post('password'),
+            'email' => $this->input->post('email'),
+            'nama_lengkap' => $this->input->post('nama_lengkap'),
+            'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+            'nomor_telepon' => $this->input->post('nomor_telepon'),
             'foto' => $new_image,
-            'tentang_user' => $this->input->post('tentang_user'),
-            'keterangan' => $this->input->post('keterangan'),
-            'tag' => $this->input->post('tag'),
-            // 'minimum' => $this->input->post('minimum'),
-            'stok' => $this->input->post('stok'),
+            'alamat' => $this->input->post('alamat'),
+            'link_map' => $this->input->post('link_map')
         ]);
 
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-						user berhasil diubah!
-						</div>');
-        redirect('admin/user/index/' . $this->input->post('id_toko'));
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pedagang berhasil diubah!</div>');
+        redirect('admin/pedagang/index');
     }
-    public function tambah_stok()
+
+    public function delete($id_pedagang = null)
     {
-        $this->db->where('id_user', $this->input->post('id_user'));
-        $this->db->update('user', [
-            'stok' => $this->input->post('stok') + $this->input->post('tambah_stok')
+        $this->db->delete('users', [
+            'id_user' => $id_pedagang
         ]);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Stok user berhasil ditambahkan!</div>');
-        redirect($_SERVER['HTTP_REFERER']);
-    }
-    public function ubah_stok()
-    {
-        $this->db->where('id_user', $this->input->post('id_user'));
-        $this->db->update('user', [
-            'stok' => $this->input->post('stok')
-        ]);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Stok user berhasil ditambahkan!</div>');
-        redirect($_SERVER['HTTP_REFERER']);
-    }
-    public function delete($id_user = null)
-    {
-        $this->db->delete('user', [
-            'id_user' => $id_user
-        ]);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">user berhasil dihapus!</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pedagang berhasil dihapus!</div>');
         redirect($_SERVER['HTTP_REFERER']);
     }
 }

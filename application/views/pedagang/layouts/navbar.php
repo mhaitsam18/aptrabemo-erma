@@ -26,20 +26,27 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end notification-dropdown" aria-labelledby="dropdownMenuButton">
                         <li class="dropdown-header">
-                            <h6>Notifications</h6>
+                            <h6>Notifikasi</h6>
                         </li>
-                        <li class="dropdown-item notification-item">
-                            <a class="d-flex align-items-center" href="#">
-                                <div class="notification-icon bg-primary">
-                                    <i class="bi bi-cart-check"></i>
-                                </div>
-                                <div class="notification-text ms-4">
-                                    <p class="notification-title font-bold">Successfully check out</p>
-                                    <p class="notification-subtitle font-thin text-sm">Order ID #256</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-item notification-item">
+                        <?php
+                        $data_notifikasi = $this->db->get_where('notifikasi', [
+                            'id_penerima' => $this->session->userdata('id_user')
+                        ])->result();
+                        ?>
+                        <?php foreach ($data_notifikasi as $notifikasi) : ?>
+                            <li class="dropdown-item notification-item">
+                                <a class="d-flex align-items-center" href="<?= base_url('pedagang/penjualan/index/') ?>">
+                                    <div class="notification-icon bg-primary">
+                                        <i class="bi bi-cart-check"></i>
+                                    </div>
+                                    <div class="notification-text ms-4">
+                                        <p class="notification-title font-bold"><?= $notifikasi->judul ?></p>
+                                        <p class="notification-subtitle font-thin text-sm"><?= $notifikasi->keterangan ?></p>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                        <!-- <li class="dropdown-item notification-item">
                             <a class="d-flex align-items-center" href="#">
                                 <div class="notification-icon bg-success">
                                     <i class="bi bi-file-earmark-check"></i>
@@ -49,9 +56,9 @@
                                     <p class="notification-subtitle font-thin text-sm">Algebra math homework</p>
                                 </div>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
-                            <p class="text-center py-2 mb-0"><a href="#">See all notification</a></p>
+                            <!-- <p class="text-center py-2 mb-0"><a href="#">See all notification</a></p> -->
                         </li>
                     </ul>
                 </li>
@@ -74,9 +81,8 @@
                     <li>
                         <h6 class="dropdown-header">Hello, <?= $this->session->userdata('nama_lengkap') ?>!</h6>
                     </li>
-                    <!-- <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-person me-2"></i> My
-                            Profile</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-gear me-2"></i>
+                    <li><a class="dropdown-item" href="<?= base_url('pedagang/home/profil') ?>"><i class="icon-mid bi bi-person me-2"></i>Profil Saya</a></li>
+                    <!-- <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-gear me-2"></i>
                             Settings</a></li>
                     <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>
                             Wallet</a></li> -->

@@ -24,6 +24,7 @@ class Keranjang extends CI_Controller
         parent::__construct();
         date_default_timezone_set('Asia/Jakarta');
         $this->load->model('produkModel');
+        $this->load->model('NotifikasiModel');
         if (!$this->session->userdata('username')) {
             redirect('home');
         }
@@ -105,6 +106,8 @@ class Keranjang extends CI_Controller
         ]);
         $id_penjualan = $this->db->insert_id();
         foreach ($this->cart->contents() as $item) {
+            $this->db->select('produk.*, id_user');
+            $this->db->join('toko', 'toko.id_toko = produk.id_toko');
             $produk = $this->db->get_where('produk', ['id_produk' => $item['id']])->row_array();
             $data = array(
                 'id_penjualan' => $id_penjualan,
@@ -120,8 +123,11 @@ class Keranjang extends CI_Controller
             $new_stok = $produk['stok'] - $item['qty'];
             $this->db->where('id_produk', $item['id']);
             $this->db->update('produk', ['stok' => $new_stok]);
+
+            $this->NotifikasiModel->insertPemesananProduk($produk['id_produk'], $produk['id_user']);
         }
         $this->cart->destroy();
+
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 			Transaksi berhasil!
 			</div>');
