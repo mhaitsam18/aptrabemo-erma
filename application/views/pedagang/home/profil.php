@@ -11,10 +11,25 @@
                         <div class="card-header">
                             <h4>Data Saya</h4>
                         </div>
-                        <?= $this->session->flashdata('message'); ?>
                         <div class="card-body">
                             <img class="img-thumbnail mb-3" src="<?= base_url('assets/img/uploads/' . $pedagang->foto) ?>" style="width: 200px;" alt="">
+                            <?= $this->session->flashdata('message'); ?>
                             <form action="<?= base_url('pedagang/Home/profil/') ?>" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="id_user" value="<?= $pedagang->id_user ?>">
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" class="form-control <?= (form_error('username')) ? 'is-invalid' : '' ?>" name="username" id="username" value="<?= set_value('username', $pedagang->username); ?>">
+                                    <div id="username" class="invalid-feedback">
+                                        <?= form_error('username') ?>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control <?= (form_error('email')) ? 'is-invalid' : '' ?>" name="email" id="email" value="<?= set_value('email', $pedagang->email); ?>">
+                                    <div id="email" class="invalid-feedback">
+                                        <?= form_error('email') ?>
+                                    </div>
+                                </div>
                                 <div class="mb-3">
                                     <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
                                     <input type="text" class="form-control <?= (form_error('nama_lengkap')) ? 'is-invalid' : '' ?>" name="nama_lengkap" id="nama_lengkap" value="<?= set_value('nama_lengkap', $pedagang->nama_lengkap); ?>">

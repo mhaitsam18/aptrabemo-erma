@@ -84,7 +84,7 @@ class Home extends CI_Controller
         $this->db->where('id_user', $this->input->post('id_user'));
         $this->db->update('users', [
             'username' => $this->input->post('username'),
-            'password' => $this->input->post('password'),
+            // 'password' => $this->input->post('password'),
             'email' => $this->input->post('email'),
             'nama_lengkap' => $this->input->post('nama_lengkap'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
@@ -93,6 +93,10 @@ class Home extends CI_Controller
             'alamat' => $this->input->post('alamat'),
             'link_map' => $this->input->post('link_map')
         ]);
+
+        $user = $this->db->get_where('users', ['id_user' => $this->input->post('id_user')])->row_array();
+        // $this->session->sess_destroy();
+        $this->session->set_userdata($user);
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data profil berhasil diubah!</div>');
         redirect('pedagang/home/profil');
