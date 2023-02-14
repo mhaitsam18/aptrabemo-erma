@@ -45,6 +45,12 @@
                         <span>Lihat Laporan Toko</span>
                     </a>
                 </li>
+                <li class="sidebar-item  <?= ($this->uri->segment(2) == 'pedagang') ? 'active' : ''; ?>">
+                    <a href="<?= base_url('admin/pedagang/index') ?>" class='sidebar-link'>
+                        <i class="bi bi-files"></i>
+                        <span>Data Pedagang</span>
+                    </a>
+                </li>
 
                 <!-- <li class="sidebar-item <?= ($this->uri->segment(2) == 'toko') ? 'active' : ''; ?> has-sub">
                     <a href="#" class='sidebar-link'>
