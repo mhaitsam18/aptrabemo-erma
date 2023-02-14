@@ -34,11 +34,12 @@ class Home extends CI_Controller
         $this->load->view('pedagang/home/index', $data);
     }
 
-    public function profil($id_user = null)
+    public function profil()
     {
         $data['title'] = "Profil";
-        $user = $this->db->get_where('users', ['id_user' => $id_user])->row();
+        $user = $this->db->get_where('users', ['id_user' => $this->session->userdata('id_user')])->row();
         $data['pedagang'] = $user;
+        $data['user'] = $user;
 
         if ($this->input->post('username') != $user->username) {
             $this->form_validation->set_rules('username', 'username', 'trim|required|is_unique[users.username]', [
@@ -93,7 +94,7 @@ class Home extends CI_Controller
             'link_map' => $this->input->post('link_map')
         ]);
 
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pedagang berhasil diubah!</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data profil berhasil diubah!</div>');
         redirect('pedagang/home/profil');
     }
 }

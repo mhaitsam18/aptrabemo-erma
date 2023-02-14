@@ -98,9 +98,7 @@ class Produk extends CI_Controller
                     'stok' => $this->input->post('stok'),
                 ]);
 
-                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-						Produk ditambahkan sukses!
-						</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Produk ditambahkan sukses!</div>');
                 redirect('pedagang/produk/index/' . $this->input->post('id_toko'));
             }
         } else {

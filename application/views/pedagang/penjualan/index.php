@@ -12,8 +12,7 @@
                             <h4>Data Pemesanan / Penjualan</h4>
                         </div>
                         <div class="card-body">
-                            <?= $this->session->flashdata('message');
-                            ?>
+                            <?= $this->session->flashdata('message'); ?>
                             <table class="table table-responsive" id="table1">
                                 <thead>
                                     <tr>

@@ -12,8 +12,7 @@
                             <h4>Tambah Produk</h4>
                         </div>
                         <div class="card-body">
-                            <?= $this->session->flashdata('message');
-                            ?>
+                            <?= $this->session->flashdata('message'); ?>
                             <form action="<?= base_url('pedagang/Produk/create/' . $toko->id_toko) ?>" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="id_toko" id="id_toko" value="<?= $toko->id_toko ?>">
                                 <!-- <div class="mb-3">
