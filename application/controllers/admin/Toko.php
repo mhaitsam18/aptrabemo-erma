@@ -34,6 +34,7 @@ class Toko extends CI_Controller
             $this->db->where('id_user', $id_pedagang);
         }
         $data['data_toko'] = $this->db->get('toko')->result();
+        $data['pedagang'] = $this->db->get_where('users', ['id_user' => $id_pedagang])->row();
 
 
         $this->form_validation->set_rules('id_user', 'id_user', 'trim|required');
@@ -73,17 +74,16 @@ class Toko extends CI_Controller
             } else {
                 $gambar_toko = 'gambar-toko/' . $this->upload->data('file_name');
             }
-        } else {
-            $this->db->insert('toko', [
-                'id_user' => $this->input->post('id_user'),
-                'nama_toko' => $this->input->post('nama_toko'),
-                'deskripsi_toko' => $this->input->post('deskripsi_toko'),
-                'gambar_toko' => $gambar_toko,
-            ]);
-
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Toko ditambahkan sukses!</div>');
-            redirect('admin/toko/index/' . $this->input->post('id_user'));
         }
+        $this->db->insert('toko', [
+            'id_user' => $this->input->post('id_user'),
+            'nama_toko' => $this->input->post('nama_toko'),
+            'deskripsi_toko' => $this->input->post('deskripsi_toko'),
+            'gambar_toko' => $gambar_toko,
+        ]);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Toko ditambahkan sukses!</div>');
+        redirect('admin/toko/index/' . $this->input->post('id_user'));
     }
     public function show($id_toko = null)
     {

@@ -69,7 +69,7 @@ class Pedagang extends CI_Controller
             'matches' => 'Kata sandi tidak sama!',
             'min_length' => 'Kata sandi terlalu pendek!'
         ]);
-        $this->form_validation->set_rules('password2', 'Konfirmasi Kata sandi', 'required|trim|matches[password1]', ['matches' => 'Kata sandi tidak sama!']);
+        $this->form_validation->set_rules('password2', 'Konfirmasi Kata sandi', 'required|trim|matches[password]', ['matches' => 'Kata sandi tidak sama!']);
         $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required');
         $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'trim|required');
         $this->form_validation->set_rules('nomor_telepon', 'Nomor Telepon', 'trim|required');
@@ -90,6 +90,7 @@ class Pedagang extends CI_Controller
         $upload_image = $_FILES['foto']['name'];
         $foto = '';
         if ($upload_image) {
+
             $config['upload_path']          = './assets/img/uploads/foto-profil/';
             $config['allowed_types']        = '*';
             $config['max_size']             = 2048;
@@ -104,30 +105,30 @@ class Pedagang extends CI_Controller
             } else {
                 $foto = 'foto-profil/' . $this->upload->data('file_name');
             }
-        } else {
-            $this->db->insert('users', [
-                'username' => $this->input->post('username'),
-                'password' => $this->input->post('password'),
-                'email' => $this->input->post('email'),
-                'nama_lengkap' => $this->input->post('nama_lengkap'),
-                'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-                'nomor_telepon' => $this->input->post('nomor_telepon'),
-                'foto' => $foto,
-                'alamat' => $this->input->post('alamat'),
-                'link_map' => $this->input->post('link_map'),
-                'role' => 'pedagang',
-                // 'is_active' => $this->input->post('is_active'),
-                // 'created_at' => $this->input->post('created_at'),
-            ]);
-
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pedagang ditambahkan sukses!</div>');
-            redirect('admin/pedagang/index/');
         }
+        $this->db->insert('users', [
+            'username' => $this->input->post('username'),
+            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+            'email' => $this->input->post('email'),
+            'nama_lengkap' => $this->input->post('nama_lengkap'),
+            'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+            'nomor_telepon' => $this->input->post('nomor_telepon'),
+            'foto' => $foto,
+            'alamat' => $this->input->post('alamat'),
+            'link_map' => $this->input->post('link_map'),
+            'role' => 'pedagang',
+            // 'is_active' => $this->input->post('is_active'),
+            // 'created_at' => $this->input->post('created_at'),
+        ]);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pedagang ditambahkan sukses!</div>');
+        redirect('admin/pedagang/index/');
     }
     public function show($id_pedagang = null)
     {
         $data['title'] = "Lihat Detail Pedagang";
         $data['pedagang'] = $this->db->get_where('users', ['id_user' => $id_pedagang])->row();
+        $data['jumlah_toko'] = $this->db->get_where('toko', ['id_user' => $id_pedagang])->num_rows();
         $this->load->view('admin/pedagang/show', $data);
     }
     public function edit($id_pedagang = null)
@@ -183,7 +184,6 @@ class Pedagang extends CI_Controller
         $this->db->where('id_user', $this->input->post('id_user'));
         $this->db->update('users', [
             'username' => $this->input->post('username'),
-            'password' => $this->input->post('password'),
             'email' => $this->input->post('email'),
             'nama_lengkap' => $this->input->post('nama_lengkap'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
